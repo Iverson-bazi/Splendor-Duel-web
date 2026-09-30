@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#102622" />
+  <title>宝石工坊：双人对决</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">双人策略桌游 · 本地对战</p>
+      <h1>宝石工坊 <span>双人对决</span></h1>
+    </div>
+    <div class="top-actions">
+      <button class="ghost" id="rulesBtn">规则</button>
+      <button class="ghost" id="restartBtn">重新开局</button>
+    </div>
+  </header>
+
+  <main class="game-shell">
+    <section id="opponentPanel" class="player-panel opponent"></section>
+
+    <section class="table-zone">
+      <div class="market-wrap">
+        <div class="section-heading">
+          <div><span>珠宝市场</span><small>购买卡牌，建立永久折扣</small></div>
+          <div class="victory-hints"><span>总声望 20</span><span>同色声望 10</span><span>王冠 10</span></div>
+        </div>
+        <div id="market" class="market"></div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="board-toolbar">
+          <div><span>公共宝石盘</span><small id="bagCount"></small></div>
+          <div class="privilege-bank" id="privilegeBank"></div>
+        </div>
+        <div id="board" class="token-board" aria-label="公共宝石棋盘"></div>
+        <p id="selectionHint" class="selection-hint">选择同一直线上的 1–3 枚相邻筹码</p>
+      </div>
+
+      <aside class="action-panel">
+        <div class="turn-indicator"><span class="pulse"></span><div><small>当前回合</small><strong id="turnName"></strong></div></div>
+        <div id="phaseText" class="phase-text"></div>
+        <div id="actionButtons" class="action-buttons"></div>
+        <div class="log-wrap"><h3>对局记录</h3><ol id="gameLog" class="game-log"></ol></div>
+      </aside>
+    </section>
+
+    <section id="currentPanel" class="player-panel current"></section>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="关闭">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="game-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
